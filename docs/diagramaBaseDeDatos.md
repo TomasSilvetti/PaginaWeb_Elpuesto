@@ -29,7 +29,7 @@ erDiagram
         string image_url
         UUID category_id FK
         boolean is_active
-        enum sale_type "UNIDAD|PESABLE|AMBOS"
+        enum sale_type "UNIDAD|PESABLE|MIXTO"
         decimal unit_price "Precio por unidad"
         decimal weight_price "Precio por kilo"
         integer stock_units "Stock en unidades, NULL para productos solo pesables"
@@ -65,8 +65,8 @@ erDiagram
         string postal_code
         string phone_number
         string notes
-        string shipping_method
-        string payment_method
+        string shipping_method "Envío|Retiro en tienda"
+        string payment_method "Debito|Credito|Efectivo|Transferencia"
         string bank_card "banco a la que pertenece la tarjeta"
         datetime created_at
         datetime expected_delivery_date

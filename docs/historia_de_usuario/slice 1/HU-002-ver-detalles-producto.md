@@ -7,40 +7,51 @@
 
 ## Criterios de Aceptación
 
-### 1. Visualización de Información
-- La página debe mostrar:
-  - Imagen grande del producto
-  - Nombre del producto
-  - Descripción detallada
-  - Categoría y navegación en breadcrumb
-  - Precio según tipo de venta
-  - Indicador de disponibilidad/stock
-  - Botón para agregar al carrito
+### Criterios de Aceptación
 
-### 2. Precios y Tipos de Venta
-- Para productos por unidad:
-  - Mostrar precio por unidad
-  - Input numérico para seleccionar cantidad
-  - Validación de stock disponible
-  
-- Para productos por peso:
-  - Mostrar precio por kilo
-  - Input numérico para ingresar peso en gramos en incrementos de a 100g (minimo 100g)
-  - Mostrar precio calculado según peso ingresado
-  - Validación de peso mínimo de venta
-  
-- Para productos mixtos:
-  - Switch para alternar entre venta por unidad o peso
-  - Mostrar precio por kilo y un disclaimer de que el precio final depende del peso
-  - Inputs correspondientes según modo seleccionado
-  - Validaciones específicas según modo
+1. Dado que soy un cliente
+   Cuando ingreso a los detalles de un producto
+   Entonces veo:
+   - Imagen grande del producto
+   - Nombre del producto
+   - Descripción detallada
+   - Categoría con navegación en breadcrumb
+   - Precio según tipo de venta
+   - Indicador de disponibilidad
+   - Botón de agregar al carrito
 
-### 3. Rendimiento y UX
-- La página debe cargar en menos de 1 segundo
-- Las imágenes deben estar optimizadas
-- Implementar preload de imágenes
-- Feedback inmediato al cambiar cantidades/pesos
-- Animaciones suaves en transiciones
+2. Dado que estoy viendo un producto por unidad
+   Cuando quiero agregarlo al carrito
+   Entonces:
+   - Veo el precio por unidad
+   - Puedo seleccionar la cantidad
+   - Veo una validación si excedo el stock
+
+3. Dado que estoy viendo un producto por peso
+   Cuando quiero agregarlo al carrito
+   Entonces:
+   - Veo el precio por kilo
+   - Puedo ingresar el peso en gramos
+   - El peso se incrementa en 100g
+   - No puedo ingresar menos del peso mínimo (100g)
+   - Veo el precio calculado según el peso
+
+4. Dado que estoy viendo un producto mixto
+   Cuando quiero agregarlo al carrito
+   Entonces:
+   - Veo el precio por kilo
+   - Veo un disclaimer sobre el precio final
+   - Puedo alternar entre unidad y peso
+   - Veo el input correspondiente al modo seleccionado
+   - No veo validaciones de stock
+
+5. Dado que estoy en la página de detalles
+   Cuando interactúo con la página
+   Entonces:
+   - La página carga en menos de 1 segundo
+   - Las imágenes están optimizadas y precargadas
+   - Recibo feedback inmediato al cambiar cantidades
+   - Las transiciones son suaves
 
 ## Detalles Técnicos
 
@@ -107,11 +118,11 @@
      c.name as category_name,
      c.description as category_description,
      CASE 
-       WHEN p.sale_type IN ('PESABLE', 'AMBOS') THEN 100 -- peso mínimo en gramos
+       WHEN p.sale_type IN ('PESABLE', 'MIXTO') THEN 100 -- peso mínimo en gramos
        ELSE NULL 
      END as min_weight,
      CASE 
-       WHEN p.sale_type IN ('PESABLE', 'AMBOS') THEN 100 -- incremento en gramos
+       WHEN p.sale_type IN ('PESABLE', 'MIXTO') THEN 100 -- incremento en gramos
        ELSE NULL 
      END as weight_increment
    FROM products p

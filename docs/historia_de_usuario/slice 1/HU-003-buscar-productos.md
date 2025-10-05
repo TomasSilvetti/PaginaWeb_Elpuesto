@@ -7,34 +7,46 @@
 
 ## Criterios de Aceptación
 
-### 1. Barra de Búsqueda
-- La barra de búsqueda debe estar visible y accesible en todo momento
-- Debe tener un placeholder indicando "Buscar productos..."
-- Debe tener un ícono de lupa minimalista para indicar la función
-- Debe tener un botón de limpiar (X) cuando hay texto
+### Criterios de Aceptación
 
-### 2. Funcionalidad de Búsqueda
-- La búsqueda debe iniciarse:
-  - Al presionar Enter
-- La búsqueda debe ser insensible a mayúsculas/minúsculas
-- Debe buscar coincidencias parciales en el nombre del producto
-- Debe mantener los filtros de categoría activos durante la búsqueda
+1. Dado que soy un cliente
+   Cuando estoy en cualquier página del sitio
+   Entonces veo:
+   - Una barra de búsqueda accesible
+   - Un placeholder "Buscar productos..."
+   - Un ícono de lupa minimalista
+   - Un botón (X) para limpiar cuando hay texto
 
-### 3. Resultados de Búsqueda
-- Mostrar los productos en el mismo formato que el catálogo
-- Indicar la cantidad de resultados encontrados
-- Mostrar un mensaje cuando no hay resultados
-- Mantener la paginación (20 productos por página)
-- Ordenar resultados por relevancia:
-  - Coincidencias exactas primero
-  - Coincidencias al inicio del nombre después
-  - Coincidencias parciales al final
+2. Dado que quiero buscar un producto
+   Cuando presiono Enter en la barra de búsqueda
+   Entonces:
+   - La búsqueda se ejecuta
+   - No distingue entre mayúsculas y minúsculas
+   - Encuentra coincidencias parciales
+   - Mantiene los filtros de categoría activos
 
-### 4. Rendimiento y UX
-- El tiempo de respuesta debe ser menor a 1 segundo
-- Debe mostrar un indicador de carga mientras busca
-- Debe mantener el término de búsqueda visible
-- Debe preservar el término de búsqueda al navegar entre páginas
+3. Dado que realicé una búsqueda
+   Cuando recibo los resultados
+   Entonces:
+   - Veo los productos en formato de catálogo
+   - Veo la cantidad de resultados encontrados
+   - Si no hay resultados, veo un mensaje claro
+   - Los resultados están paginados (20 por página)
+
+4. Dado que hay múltiples resultados
+   Cuando veo la lista
+   Entonces están ordenados por relevancia:
+   - Primero las coincidencias exactas
+   - Luego coincidencias al inicio del nombre
+   - Finalmente coincidencias parciales
+
+5. Dado que estoy realizando una búsqueda
+   Cuando espero los resultados
+   Entonces:
+   - La respuesta llega en menos de 1 segundo
+   - Veo un indicador de carga
+   - El término de búsqueda permanece visible
+   - El término se mantiene al cambiar de página
 
 ## Detalles Técnicos
 

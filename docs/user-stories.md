@@ -1,6 +1,6 @@
 # Historias de Usuario - El Puesto MVP
 
-## Slice: Productos
+## Slice 1
 
 ### HU-001: Ver Catálogo de Productos
 **Como** cliente del supermercado  
@@ -17,7 +17,7 @@
 **Quiero** poder buscar productos por nombre  
 **Para** encontrar rápidamente lo que necesito
 
-## Slice: Carrito
+## Slice 2
 
 ### HU-004: Agregar al Carrito
 **Como** cliente del supermercado  
@@ -39,7 +39,7 @@
 **Quiero** poder eliminar productos de mi carrito  
 **Para** no comprar productos que ya no deseo
 
-## Slice: Órdenes
+## Slice 3
 
 ### HU-008: Crear Orden
 **Como** cliente del supermercado  
@@ -61,19 +61,17 @@
 **Quiero** poder seleccionar mi método de pago preferido  
 **Para** completar los datos de mi compra
 
-## Slice: Contacto
-
-### HU-012: Formulario de Contacto
-**Como** cliente del supermercado  
-**Quiero** poder enviar un mensaje a través de un formulario de contacto  
-**Para** hacer consultas o reportar problemas
+## Slice 4
 
 ### HU-013: Ver Información de Contacto
 **Como** cliente del supermercado  
 **Quiero** ver la información de contacto del supermercado  
-**Para** poder comunicarme por otros medios si lo necesito
+**Para** poder comunicarme por WhatsApp si tengo consultas o problemas con mi pedido
 
-## Slice: Autenticación
+// Nota: La HU-012 (Formulario de Contacto) se ha movido a implementaciones futuras ya que inicialmente 
+// el contacto se manejará exclusivamente vía WhatsApp
+
+## Slice 5
 
 ### HU-014: Registro de Usuario
 **Como** visitante del supermercado  
@@ -92,34 +90,9 @@
 
 ---
 
-## Priorización para MVP
-Para la primera versión del MVP, sugiero enfocarnos en las siguientes historias de usuario críticas:
 
-### Prioridad Alta (MVP)
-1. HU-P1: Ver Catálogo de Productos
-2. HU-P2: Ver Detalles de Producto
-3. HU-C1: Agregar al Carrito
-4. HU-C2: Ver Carrito
-5. HU-O1: Crear Orden
-6. HU-O4: Selección de Método de Pago
-7. HU-CT2: Ver Información de Contacto
 
-### Prioridad Media (Post-MVP inmediato)
-1. HU-C3: Modificar Cantidades
-2. HU-C4: Eliminar del Carrito
-3. HU-O2: Ver Resumen de Orden
-4. HU-P3: Buscar Productos
-5. HU-A1: Registro de Usuario
-6. HU-A2: Inicio de Sesión
-
-### Prioridad Baja (Futuras iteraciones)
-1. HU-CT1: Formulario de Contacto
-2. HU-O3: Información de Envío
-3. HU-A3: Recuperación de Contraseña
-
----
-
-# Contexto Adicional del Negocio
+# Reglas del negocio
 
 ## Tipos de Productos y Cálculo de Precios
 
@@ -134,7 +107,7 @@ Para la primera versión del MVP, sugiero enfocarnos en las siguientes historias
    - Cálculo: (peso_en_gramos / 1000) × precio_por_kilo
    - Ejemplo: (500g / 1000) × $2000 = $1000
 
-3. **Mixtos (Ambos)**
+3. **Mixtos**
    - Productos que pueden venderse de ambas formas (ej: frutas)
    - El cliente elige si compra por unidad o por peso
    - Ejemplo: Manzanas
@@ -157,5 +130,7 @@ Para la primera versión del MVP, sugiero enfocarnos en las siguientes historias
 3. **Para Productos Mixtos (ej: frutas)**
    - Deben configurarse ambos precios
    - El cliente debe poder elegir el modo de compra
-   - Si se vende por unidad, se controla el stock
-   - Si se vende por peso, no se controla el stock
+   - Internamente se tratan como productos por peso
+   - El precio final siempre se calcula por peso real
+   - No requieren control de stock
+   - Se pueden vender cantidades ilimitadas

@@ -47,20 +47,44 @@ CREATE TABLE carts (
 3. Más fácil de mantener inicialmente
 4. Suficiente para validar el modelo de negocio
 
-## Plan de Implementación Futura
+## Priorización de Implementaciones Futuras
 
-### Fase 1: Post-MVP
-- Implementar carritos para usuarios anónimos
-- Agregar session_id y manejo de cookies
-- Sistema básico de expiración
+### Prioridad Alta
+- **Carritos para Usuarios Anónimos**
+  - Implementación del sistema basado en sesiones
+  - Agregar session_id y manejo de cookies
+  - Conversión de carritos anónimos a usuarios registrados
 
-### Fase 2: Optimización
-- Sistema completo de gestión de expiración
-- Limpieza automática de carritos
-- Notificaciones a usuarios
+- **Sistema Básico de Expiración**
+  - Limpieza básica de carritos abandonados
+  - Restauración de stock al expirar
 
-### Fase 3: Características Avanzadas
-- Persistencia de carritos entre sesiones
-- Sincronización entre dispositivos
-- Sistema de recuperación de carritos abandonados
-- Analytics de comportamiento de usuarios
+### Prioridad Media
+- **Gestión Avanzada de Expiración**
+  - Sistema completo de gestión del ciclo de vida
+  - Limpieza automática programada
+  - Notificaciones a usuarios sobre expiración
+
+- **Persistencia y Sincronización**
+  - Persistencia de carritos entre sesiones
+  - Sincronización entre dispositivos
+
+### Prioridad Baja
+- **Analytics y Recuperación**
+  - Sistema de recuperación de carritos abandonados
+  - Analytics de comportamiento de usuarios
+  - Remarketing basado en carritos abandonados
+
+- **Formulario de Contacto Web**
+  - Implementación de formulario web para consultas y reclamos
+  - Sistema de tickets para seguimiento de consultas
+  - Integración con sistema de emails para notificaciones
+  - Autocompletado con información de órdenes
+  - Priorizado para segunda fase del proyecto ya que inicialmente se manejará vía WhatsApp
+
+- **Funcionalidad de Deshacer Eliminación**
+  - Botón "Deshacer" visible por 5 segundos
+  - Restauración del producto con cantidad/peso original
+  - Actualización automática de totales
+  - Componentes necesarios: UndoButton, ConfirmDialog
+  - Endpoint: POST /api/cart/items/{item_id}/restore

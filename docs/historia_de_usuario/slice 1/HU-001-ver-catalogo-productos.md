@@ -8,40 +8,60 @@
 
 ## Criterios de Aceptación
 
-### 1. Visualización de Productos
-- La página debe mostrar una cuadrícula de productos
-- Cada producto debe mostrar:
-  - Imagen del producto
-  - Nombre del producto
-  - Precio (según tipo de venta)
-  - Indicador de disponibilidad
-  - Un boton para agregar al carrito
-  - Un switch para elegir entre venta por unidad o por peso
-- Los productos deben organizarse en una cuadrícula responsive
-  - Desktop: 4 productos por fila
-  - Tablet: 4 productos por fila
-  - Mobile: 2 productos por fila
+### Criterios de Aceptación
 
-### 2. Precios y Tipos de Venta
-- Para productos por unidad:
-  - Mostrar precio por unidad
-- Para productos por peso:
-  - Mostrar precio por kilo
--  Para productos mixtos:
-  - Mostrar ambos precios (unidad y kilo)
-    - Permitir al usuario seleccionar el tipo de venta (unidad o peso) mediante un switch
+1. Dado que soy un cliente
+   Cuando ingreso al catálogo de productos
+   Entonces veo una cuadrícula de productos con:
+   - Imagen del producto
+   - Nombre del producto
+   - Precio según tipo de venta
+   - Indicador de disponibilidad
+   - Botón de agregar al carrito
+   - Switch de tipo de venta (cuando aplique)
 
-### 3. Filtrado y Organización
-- Los productos deben poder filtrarse por categoría
-- Debe mostrar un menú/breadcrumb de navegación por categorías
-- Los productos inactivos (`is_active = false`) no deben mostrarse
-- Debe implementarse paginación (20 productos por página)
+2. Dado que estoy viendo el catálogo
+   Cuando lo visualizo en diferentes dispositivos
+   Entonces la cuadrícula se ajusta responsivamente:
+   - Desktop: 4 productos por fila
+   - Tablet: 4 productos por fila
+   - Mobile: 2 productos por fila
 
-### 4. Rendimiento
-- La página debe cargar en menos de 2 segundos
-- Las imágenes deben estar optimizadas
-- Debe implementarse lazy loading para imágenes
-- La paginación debe ser eficiente y no recargar toda la página
+3. Dado que estoy viendo un producto por unidad
+   Cuando miro su precio
+   Entonces veo el precio por unidad claramente indicado
+
+4. Dado que estoy viendo un producto por peso
+   Cuando miro su precio
+   Entonces veo el precio por kilo claramente indicado
+
+5. Dado que estoy viendo un producto mixto
+   Cuando miro su información
+   Entonces:
+   - Veo el precio por kilo
+   - Veo un disclaimer sobre el precio final
+   - Veo un switch para elegir tipo de venta
+
+6. Dado que estoy explorando el catálogo
+   Cuando uso los filtros de categoría
+   Entonces:
+   - Veo solo productos de la categoría seleccionada
+   - Veo un breadcrumb de navegación por categorías
+   - No veo productos inactivos
+
+7. Dado que hay más de 20 productos
+   Cuando navego por el catálogo
+   Entonces:
+   - Veo la paginación
+   - Puedo navegar entre páginas
+   - Solo se cargan 20 productos por página
+
+8. Dado que estoy cargando el catálogo
+   Cuando ingreso a la página
+   Entonces:
+   - La página carga en menos de 2 segundos
+   - Las imágenes se cargan optimizadas
+   - Las imágenes se cargan progresivamente (lazy loading)
 
 ## Detalles Técnicos
 
@@ -70,9 +90,10 @@
      imageUrl: string;
      categoryId: string;
      isActive: boolean;
-     saleType: 'UNIDAD' | 'PESABLE' | 'AMBOS';
-     unitPrice: number | null;
-     weightPrice: number | null;
+     saleType: 'UNIDAD' | 'PESABLE' | 'MIXTO';
+     unitPrice: number | null;     // Para display en productos mixtos
+     weightPrice: number;          // Siempre requerido para productos pesables y mixtos
+     requiresStock: boolean;       // Solo true para productos por unidad
    }
 
    interface ProductSaleType {
