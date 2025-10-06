@@ -32,5 +32,6 @@ PaginaWebElpuesto/
 ## Tecnologías Utilizadas
 - Frontend: React con Vite
 - Backend: FastAPI
-- Base de datos: PostgreSQL
+- Base de datos: PostgreSQL en Docker
+- Contenedorización: Docker para desarrollo local
 

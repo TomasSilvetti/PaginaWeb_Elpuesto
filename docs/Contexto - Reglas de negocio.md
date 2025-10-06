@@ -26,8 +26,9 @@
 ## Decisiones Técnicas
 
 ### Base de Datos
-- Sistema: PostgreSQL usaremos SQLAlchemy
-- Estado: Pendiente de implementación local
+- Sistema: PostgreSQL con SQLAlchemy
+- Implementación: Contenedor Docker para desarrollo local
+- Estado: Pendiente de configuración
 - Datos de prueba: Pendientes de crear
 
 ### Almacenamiento de Imágenes
