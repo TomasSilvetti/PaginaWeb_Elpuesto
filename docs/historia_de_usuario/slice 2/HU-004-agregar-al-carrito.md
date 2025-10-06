@@ -65,10 +65,10 @@
 1. Componentes Necesarios:
    ```typescript
    // Componentes
-   AddToCartButton.tsx
-   IncrementDecrementInput.tsx    // Componente reutilizable para botones + y -
-   SaleTypeSwitch.tsx            // Switch para productos mixtos
-   ErrorMessage.tsx              // Componente para mostrar errores
+   AddToCartButton.jsx
+   IncrementDecrementInput.jsx    // Componente reutilizable para botones + y -
+   SaleTypeSwitch.jsx            // Switch para productos mixtos
+   ErrorMessage.jsx              // Componente para mostrar errores
    
    // Hooks
    useCart.ts

@@ -54,10 +54,10 @@
 1. Componentes Necesarios:
    ```typescript
    // Componentes
-   QuantityEditor.tsx
-   WeightEditor.tsx
-   ErrorMessage.tsx
-   UpdateIndicator.tsx
+   QuantityEditor.jsx
+   WeightEditor.jsx
+   ErrorMessage.jsx
+   UpdateIndicator.jsx
    
    // Hooks
    useCartItem.ts

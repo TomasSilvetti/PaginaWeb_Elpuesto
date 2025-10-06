@@ -38,8 +38,8 @@
 1. Componentes Necesarios:
    ```typescript
    // Componentes
-   DeleteItemButton.tsx
-   EmptyCartMessage.tsx
+   DeleteItemButton.jsx
+   EmptyCartMessage.jsx
    
    // Hooks
    useCart.ts

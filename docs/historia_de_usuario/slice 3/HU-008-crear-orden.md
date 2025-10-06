@@ -67,7 +67,7 @@
 ## Especificaciones Técnicas
 
 ### Componentes Frontend
-```typescript
+```javascript
 interface CreateOrderRequest {
   cartId: string;
   userId: string;

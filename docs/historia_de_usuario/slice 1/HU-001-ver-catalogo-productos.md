@@ -18,7 +18,7 @@
    - Precio según tipo de venta
    - Indicador de disponibilidad
    - Botón de agregar al carrito
-   - Switch de tipo de venta (cuando aplique)
+   - Switch de tipo de venta (para productos mixtos)
 
 2. Dado que estoy viendo el catálogo
    Cuando lo visualizo en diferentes dispositivos
@@ -39,7 +39,6 @@
    Cuando miro su información
    Entonces:
    - Veo el precio por kilo
-   - Veo un disclaimer sobre el precio final
    - Veo un switch para elegir tipo de venta
 
 6. Dado que estoy explorando el catálogo
@@ -67,53 +66,57 @@
 
 ### Frontend (React + Vite)
 1. Componentes Necesarios:
-   ```typescript
+   ```javascript
    // Página principal
-   ProductCatalog.tsx
+   ProductCatalog.jsx
    
    // Componentes
-   ProductGrid.tsx
-   ProductCard.tsx
-   CategoryNavigation.tsx
-   Pagination.tsx
-   AddToCartButton.tsx
-   ProductTypeSwitch.tsx
-   PriceDisplay.tsx
+   ProductGrid.jsx
+   ProductCard.jsx
+   CategoryNavigation.jsx
+   Pagination.jsx
+   AddToCartButton.jsx
+   ProductTypeSwitch.jsx
+   PriceDisplay.jsx
    ```
 
 2. Estado Global (Redux/Context):
-   ```typescript
-   interface Product {
-     id: string;
-     name: string;
-     description: string;
-     imageUrl: string;
-     categoryId: string;
-     isActive: boolean;
-     saleType: 'UNIDAD' | 'PESABLE' | 'MIXTO';
-     unitPrice: number | null;     // Para display en productos mixtos
-     weightPrice: number;          // Siempre requerido para productos pesables y mixtos
-     requiresStock: boolean;       // Solo true para productos por unidad
-   }
+   ```javascript
+   // Product
+   // {
+   //   id: string,
+   //   name: string,
+   //   description: string,
+   //   imageUrl: string,
+   //   categoryId: string,
+   //   isActive: boolean,
+   //   saleType: 'UNIDAD' | 'PESABLE' | 'MIXTO',
+   //   unitPrice: number | null,     // Para display en productos mixtos
+   //   weightPrice: number,          // Siempre requerido para productos pesables y mixtos
+   //   requiresStock: boolean,       // Solo true para productos por unidad
+   // }
 
-   interface ProductSaleType {
-     productId: string;
-     selectedType: 'UNIDAD' | 'PESABLE';
-   }
+   // ProductSaleType
+   // {
+   //   productId: string,
+   //   selectedType: 'UNIDAD' | 'PESABLE'
+   // }
 
-   interface AddToCartAction {
-     productId: string;
-     saleType: 'UNIDAD' | 'PESABLE';
-     quantity?: number;
-     weight?: number;
-   }
+   // AddToCartAction
+   // {
+   //   productId: string,
+   //   saleType: 'UNIDAD' | 'PESABLE',
+   //   quantity?: number,
+   //   weight?: number
+   // }
 
-   interface Category {
-     id: string;
-     name: string;
-     description: string;
-     parentId: string | null;
-   }
+   // Category
+   // {
+   //   id: string,
+   //   name: string,
+   //   description: string,
+   //   parentId: string | null
+   // }
    ```
 
 ### Backend (FastAPI)

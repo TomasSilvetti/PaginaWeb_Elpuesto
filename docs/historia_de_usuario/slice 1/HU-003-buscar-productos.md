@@ -54,27 +54,29 @@
 1. Componentes Necesarios:
    ```typescript
    // Componentes
-   SearchBar.tsx
-   SearchResults.tsx
-   SearchStatus.tsx    // Para mostrar cantidad de resultados/mensajes
-   LoadingSpinner.tsx
+   SearchBar.jsx
+   SearchResults.jsx
+   SearchStatus.jsx    // Para mostrar cantidad de resultados/mensajes
+   LoadingSpinner.jsx
    ```
 
 2. Estado Global (Redux/Context):
-   ```typescript
-   interface SearchState {
-     searchTerm: string;
-     isSearching: boolean;
-     resultsCount: number;
-     currentPage: number;
-     category?: string;
+   ```javascript
+   // SearchState shape
+   const initialSearchState = {
+     searchTerm: '',
+     isSearching: false,
+     resultsCount: 0,
+     currentPage: 1,
+     category: null
    }
 
-   interface SearchFilters {
-     searchTerm: string;
-     categoryId?: string;
-     page: number;
-     pageSize: number;
+   // SearchFilters PropTypes
+   SearchResults.propTypes = {
+     searchTerm: PropTypes.string.isRequired,
+     categoryId: PropTypes.string,
+     page: PropTypes.number.isRequired,
+     pageSize: PropTypes.number.isRequired
    }
    ```
 

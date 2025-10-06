@@ -57,21 +57,21 @@
 
 ### Frontend (React + Vite)
 1. Componentes Necesarios:
-   ```typescript
+   ```javascript
    // Página principal
-   ProductDetail.tsx
-   
+   ProductDetail.jsx
+
    // Componentes
-   ProductImage.tsx
-   ProductInfo.tsx
-   AddToCartForm.tsx
-   WeightSelector.tsx  // Componente específico para selección de peso
-   PriceDisplay.tsx    // Componente para mostrar precios y disclaimers
-   ProductTypeSwitch.tsx // Switch para alternar entre unidad/peso
+   ProductImage.jsx
+   ProductInfo.jsx
+   AddToCartForm.jsx
+   WeightSelector.jsx  // Componente específico para selección de peso
+   PriceDisplay.jsx    // Componente para mostrar precios y disclaimers
+   ProductTypeSwitch.jsx // Switch para alternar entre unidad/peso
    ```
 
 2. Estado Global (Redux/Context):
-   ```typescript
+   ```javascript
    interface ProductDetail extends Product {
      category: Category;
      relatedProducts: Product[];
